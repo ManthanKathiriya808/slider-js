@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="slider.css">
+    
+    <title>Sliders</title>
+</head>
+<body>
+    
+    <h1>Sliders</h1>
+
+    <div class="container">
+
+        <button onclick="prev()"> ⬅️ </button>
+
+        <div class="slider">
+
+            <div class="slids" id="slids">
+                
+                <img class="sli"  src="https://media.istockphoto.com/id/483724081/photo/yosemite-valley-landscape-and-river-california.jpg?s=612x612&w=0&k=20&c=QQ7rvq0Qbfpkug1Wbd36PGqkOntoPFKWxiE4w4tV-NE=" alt="">
+                <img class="sli"  src="https://media.istockphoto.com/id/495508534/photo/aerial-view-on-spacious-pine-forest-at-sunrise.jpg?s=612x612&w=0&k=20&c=NUGzlDoCT9JzRtZW3Z8fGIImOZZhA4bBSHiTKQgHJHU=" alt="">
+         
+                <img class="sli" src="https://media.istockphoto.com/id/471926619/photo/moraine-lake-at-sunrise-banff-national-park-canada.jpg?s=612x612&w=0&k=20&c=mujiCtVk5QA697SD3d8V8BGmd91-8HlxCNHkolEA0Bo=" alt="">
+                <img class="sli" src="https://media.istockphoto.com/id/483076291/photo/day-at-the-ocean.jpg?s=612x612&w=0&k=20&c=atNOSnA_wLZQ-poa8mYIdPwt4hkl0ZpH5TnFxScpqAQ=" alt="">
+            </div>
+
+        </div>
+
+        <button onclick="next()"> ➡️ </button>
+
+    </div>
+
+</body>
+
+        <script src="slider.js">
+        </script>
+
+
+        <script>
+            let slids = document.getElementById("slids")
+
+let sli = document.getElementsByClassName("sli")
+
+ let sli_length = sli.length;
+
+
+
+let count=0;
+
+
+function next(){
+    if(count < sli_length -1){
+      count++;
+    }
+    else{
+        count = 0
+    }
+    slids.style.transform = `translateX(-${count*800}px)`
+   
+
+}
+
+function prev(){
+    if(count > 0){
+        count-- ;
+    }
+    else{
+        count = sli_length - 1
+    }
+
+    slids.style.transform = `translateX(-${count*800}px)`
+}
+
+
+setInterval (function(){
+    
+    if(count < sli_length){
+        count++;
+    }
+    else{
+        count = 0;
+    }
+    slids.style.transform = `traslateX(-${count+800}px)`
+
+}, 1000)
+
+
+        </script>
+        
+</html>
